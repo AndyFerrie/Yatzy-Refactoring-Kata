@@ -54,7 +54,7 @@ class Yatzy
   end
 
   def self.score_pair(dice)
-    
+
   end
 
   def self.two_pair( d1,  d2,  d3,  d4,  d5)
