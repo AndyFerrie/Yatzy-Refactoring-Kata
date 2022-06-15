@@ -58,22 +58,21 @@ class YatzyTest < Test::Unit::TestCase
     assert 12 == Yatzy.score_pair([5,3,6,6,5])
   end
 
-  def test_two_Pair
-    assert_equal 16, Yatzy.two_pair(3,3,5,4,5)
-    assert_equal 16, Yatzy.two_pair(3,3,5,5,5)
+  def test_two_pair
+    assert_equal 16, Yatzy.two_pair([3,3,5,4,5])
+    assert_equal 16, Yatzy.two_pair([3,3,5,5,5])
   end
 
-  def test_three_of_a_kind()
-    assert 9 == Yatzy.three_of_a_kind(3,3,3,4,5)
-    assert 15 == Yatzy.three_of_a_kind(5,3,5,4,5)
-    assert 9 == Yatzy.three_of_a_kind(3,3,3,3,5)
+  def test_three_of_a_kind
+    assert 9 == Yatzy.three_of_a_kind([3,3,3,4,5])
+    assert 15 == Yatzy.three_of_a_kind([5,3,5,4,5])
+    assert 9 == Yatzy.three_of_a_kind([3,3,3,3,5])
   end
 
-  def test_four_of_a_knd
-    assert 12 == Yatzy.four_of_a_kind(3,3,3,3,5)
-    assert 20 == Yatzy.four_of_a_kind(5,5,5,4,5)
-    assert 9 == Yatzy.three_of_a_kind(3,3,3,3,3)
-    assert 12 == Yatzy.four_of_a_kind(3,3,3,3,3)
+  def test_four_of_a_kind
+    assert 12 == Yatzy.four_of_a_kind([3,3,3,3,5])
+    assert 20 == Yatzy.four_of_a_kind([5,5,5,4,5])
+    assert 12 == Yatzy.four_of_a_kind([3,3,3,3,3])
   end
 
   def test_smallStraight()
