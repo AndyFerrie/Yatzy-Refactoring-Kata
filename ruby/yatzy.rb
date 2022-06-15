@@ -53,29 +53,17 @@ class Yatzy
     countSingles(dice, 6)
   end
 
-  def self.countMultiples(dice, num)
+  def self.score_pair(dice)
     hightolow = dice.sort.reverse
     for i in hightolow
-      if dice.count(i) >= num
-        return i*num
+      if dice.count(i) >= 2
+        return i*2
       else
         0
       end
     end
   end
 
-  def self.score_pair(dice)
-    countMultiples(dice, 2)
-  end
-
-  def self.three_of_a_kind(dice)
-    countMultiples(dice, 3)
-  end
-
-  def self.four_of_a_kind(dice)
-    countMultiples(dice, 4)
-  end
-  
   def self.two_pair(dice)
     score = 0
     array = []
@@ -89,6 +77,27 @@ class Yatzy
     score
   end
 
+  def self.three_of_a_kind(dice)
+    for i in dice
+      if dice.count(i) >= 3
+        return i*3
+      else
+        0
+      end
+    end
+  end
+
+  def self.four_of_a_kind(dice)
+    for i in dice
+      if dice.count(i) >= 4
+        return i*4
+      else
+        0
+      end
+    end
+  end
+  
+  
  
 
   def self.smallStraight( d1,  d2,  d3,  d4,  d5)
