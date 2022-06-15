@@ -29,33 +29,33 @@ class YatzyTest < Test::Unit::TestCase
     assert Yatzy.twos([2,2,2,2,2]) == 10
   end
 
-  def test_threes
+  def test_3s
     assert 6 == Yatzy.threes([1,2,3,2,3])
     assert 12 == Yatzy.threes([2,3,3,3,3])
   end
 
-  def test_fours_test
+  def test_4s
     assert 12 == Yatzy.fours([4,4,4,5,5])
     assert 8 == Yatzy.fours([4,4,5,5,5])
     assert 4 == Yatzy.fours([4,5,5,5,5])
   end
 
-  def test_fives()
+  def test_5s
     assert 10 == Yatzy.fives([4,4,4,5,5])
     assert 15 == Yatzy.fives([4,4,5,5,5])
     assert 20 == Yatzy.fives([4,5,5,5,5])
   end
 
-  def test_sixes_test
+  def test_6s
     assert 0 == Yatzy.sixes([4,4,4,5,5])
     assert 6 == Yatzy.sixes([4,4,6,5,5])
     assert 18 == Yatzy.sixes([6,5,6,6,5])
   end
 
   def test_one_pair
-    assert 6 == Yatzy.score_pair(3,4,3,5,6)
-    assert 10 == Yatzy.score_pair(5,3,3,3,5)
-    assert 12 == Yatzy.score_pair(5,3,6,6,5)
+    assert 6 == Yatzy.score_pair([3,4,3,5,6])
+    assert 10 == Yatzy.score_pair([5,3,3,3,5])
+    assert 12 == Yatzy.score_pair([5,3,6,6,5])
   end
 
   def test_two_Pair
