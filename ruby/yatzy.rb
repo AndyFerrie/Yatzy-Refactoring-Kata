@@ -67,8 +67,7 @@ class Yatzy
   def self.two_pair(dice)
     score = 0
     array = []
-    hightolow = dice.sort.reverse
-    for i in hightolow
+    for i in dice
       if dice.count(i) > 1 && !array.include?(i)
         array.push(i)
         score += i*2
