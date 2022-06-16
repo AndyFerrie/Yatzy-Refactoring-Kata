@@ -74,7 +74,11 @@ class Yatzy
         score += i*2
       end
     end
-    score
+    if array.length > 1
+      score
+    else
+      0
+    end
   end
 
   def self.three_of_a_kind(dice)
@@ -96,70 +100,35 @@ class Yatzy
       end
     end
   end
-  
-  
- 
 
-  def self.smallStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    (tallies[0] == 1 and
-      tallies[1] == 1 and
-      tallies[2] == 1 and
-      tallies[3] == 1 and
-      tallies[4] == 1) ? 15 : 0
-  end
-
-  def self.largeStraight( d1,  d2,  d3,  d4,  d5)
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-    if (tallies[1] == 1 and tallies[2] == 1 and tallies[3] == 1 and tallies[4] == 1 and tallies[5] == 1)
-      return 20
-    end
-    return 0
-  end
-
-  def self.fullHouse( d1,  d2,  d3,  d4,  d5)
-    tallies = []
-    _2 = false
-    i = 0
-    _2_at = 0
-    _3 = false
-    _3_at = 0
-
-    tallies = [0]*6
-    tallies[d1-1] += 1
-    tallies[d2-1] += 1
-    tallies[d3-1] += 1
-    tallies[d4-1] += 1
-    tallies[d5-1] += 1
-
-    for i in Array 0..5
-      if (tallies[i] == 2)
-        _2 = true
-        _2_at = i+1
-      end
-    end
-
-    for i in Array 0..5
-      if (tallies[i] == 3)
-        _3 = true
-        _3_at = i+1
-      end
-    end
-
-    if (_2 and _3)
-      return _2_at * 2 + _3_at * 3
+  def self.smallStraight(dice)
+    if dice.sort == [1, 2, 3, 4, 5]
+      15
     else
-      return 0
+      0
     end
   end
+
+  def self.largeStraight(dice)
+    if dice.sort == [2, 3, 4, 5, 6]
+      20
+     else
+      0
+     end
+  end
+
+  def self.fullHouse(dice)
+    for i in dice
+      if dice.count(i) == 2
+        two = true
+      elsif dice.count(i) == 3
+        three = true
+      end
+      if two && three
+        return dice.sum
+      end
+    end
+    0
+  end
+
 end

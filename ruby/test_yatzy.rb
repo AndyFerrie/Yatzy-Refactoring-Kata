@@ -61,6 +61,7 @@ class YatzyTest < Test::Unit::TestCase
   def test_two_pair
     assert_equal 16, Yatzy.two_pair([3,3,5,4,5])
     assert_equal 16, Yatzy.two_pair([3,3,5,5,5])
+    assert_equal 0, Yatzy.two_pair([5,5,5,5,5])
   end
 
   def test_three_of_a_kind
@@ -75,20 +76,20 @@ class YatzyTest < Test::Unit::TestCase
     assert 12 == Yatzy.four_of_a_kind([3,3,3,3,3])
   end
 
-  def test_smallStraight()
-    assert 15 == Yatzy.smallStraight(1,2,3,4,5)
-    assert 15 == Yatzy.smallStraight(2,3,4,5,1)
-    assert 0 == Yatzy.smallStraight(1,2,2,4,5)
+  def test_smallStraight
+    assert 15 == Yatzy.smallStraight([1,2,3,4,5])
+    assert 15 == Yatzy.smallStraight([2,3,4,5,1])
+    assert 0 == Yatzy.smallStraight([1,2,2,4,5])
   end
 
   def test_largeStraight
-    assert 20 == Yatzy.largeStraight(6,2,3,4,5)
-    assert 20 == Yatzy.largeStraight(2,3,4,5,6)
-    assert 0 == Yatzy.largeStraight(1,2,2,4,5)
+    assert 20 == Yatzy.largeStraight([6,2,3,4,5])
+    assert 20 == Yatzy.largeStraight([2,3,4,5,6])
+    assert 0 == Yatzy.largeStraight([1,2,2,4,5])
   end
 
-  def test_fullHouse()
-    assert 18 == Yatzy.fullHouse(6,2,2,2,6)
-    assert 0 == Yatzy.fullHouse(2,3,4,5,6)
+  def test_fullHouse
+    assert 18 == Yatzy.fullHouse([6,2,2,2,6])
+    assert 0 == Yatzy.fullHouse([2,3,4,5,6])
   end
 end
